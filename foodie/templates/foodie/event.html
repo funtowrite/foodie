@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+	<div id="main_container">
+		<div class="row">
+			<div class="col-xs-4"></div>
+			<div class="col-xs-5 centered"><h1> {{event.name}} </h1></div>
+		</div>
+		<div class="row">
+			<div class="col-xs-2"></div>
+			<div class="col-xs-4">
+				Starting at: {{event.startTime}}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-2"></div>
+			<div class="col-xs-4">
+				Ending at: {{event.endTime}}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-2"></div>
+			<div class="col-xs-4">
+				Happening at: {{event.location}}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-2"></div>
+			<div class="col-xs-4">
+				<h3> Who is Coming?</h3>
+			</div>
+		</div>
+		{% if event %}
+		    {% for vendor in vendors %}
+		    <div class="row">
+		    	<div class="col-xs-2"> </div>
+	        	<div class="col-xs-6">
+	        		<h3>
+	        			<a href="/vendor/{{ vendor.id }}/" >
+	        				{{ vendor.name }}  
+	        			</a>
+	        		</h3>
+	        	</div>    
+		    </div>
+		    {% endfor %}
+		{% else %}
+		    <p>No events are available.</p>
+		{% endif %}
+	</div>
+	<br /><br /><br />
+</body>
+</html>

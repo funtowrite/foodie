@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+	<div id="main_container">
+		<div class="row">
+			<div class="col-xs-4"></div>
+			<div class="col-xs-5 centered"><h1> {{vendor.name}} </h1></div>
+		</div>
+		<div class="row">
+			<div class="col-xs-2"></div>
+			<div class="col-xs-8">
+				<h3> How many events has {{vendor.name}} attended in the past 30 days?</h3>
+				<br />
+				<h2> {{vendor.eventCount}}</h2>
+			</div>
+		</div>
+	    {% for event in events %}
+	    <div class="row">
+	    	<div class="col-xs-2"> </div>
+        	<div class="col-xs-6">
+        		<h3>
+        			<a href="/event/{{ event.id }}/" >
+        				{{ event.name }}  
+        				<br />
+        				{{ event.startTime}}
+        				<br />
+        				{{ event.location}}
+        			</a>
+        		</h3>
+        	</div>    
+	    </div>
+	    {% endfor %}
+	</div>
+	<br /><br /><br />
+</body>
+</html>
